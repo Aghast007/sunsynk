@@ -29,6 +29,11 @@ SENSORS += (
     Sensor(588, "Battery SOC", "%"),
     Sensor(590, "Battery power", WATT, -1),
     Sensor(591, "Battery current", AMPS, -0.01),
+    TempSensor(596, "Battery 2 temperature", CELSIUS, 0.1), #AG
+    Sensor(593, "Battery 2 voltage", VOLT, 0.01), #AG
+    Sensor(589, "Battery 2 SOC", "%"), #AG
+    Sensor(595, "Battery 2 power", WATT, -1), #AG
+    Sensor(594, "Battery 2 current", AMPS, -0.01), #AG
 )
 
 #################
@@ -39,7 +44,9 @@ SENSORS += (
     Sensor(633, "Inverter L1 power", WATT, -1),
     Sensor(634, "Inverter L2 power", WATT, -1),
     Sensor(635, "Inverter L3 power", WATT, -1),
-    Sensor(627, "Inverter voltage", VOLT, 0.1),
+    Sensor(627, "Inverter L1 voltage", VOLT, 0.1),
+    Sensor(628, "Inverter L2 voltage", VOLT, 0.1),
+    Sensor(629, "Inverter L3 voltage", VOLT, 0.1),
     Sensor(638, "Inverter frequency", "Hz", 0.01),
 )
 
@@ -52,7 +59,12 @@ SENSORS += (
     Sensor(622, "Grid L1 power", WATT, -1),  # aPower
     Sensor(623, "Grid L2 power", WATT, -1),  # bPower
     Sensor(624, "Grid L3 power", WATT, -1),  # cPower
-    Sensor(600, "Grid voltage", VOLT, 0.1),  # aLineVolt
+    Sensor(598, "Grid L1 voltage", VOLT, 0.1),  # aLineVolt AG change from add 600
+    Sensor(599, "Grid L2 voltage", VOLT, 0.1),  # bLineVolt AG
+    Sensor(600, "Grid L3 voltage", VOLT, 0.1),  # cLineVolt AG
+    Sensor(610, "Grid L1 current", AMPS, 0.01),  # aLineCurrent AG
+    Sensor(611, "Grid L2 current", AMPS, 0.01),  # bLineCurrent AG
+    Sensor(612, "Grid L3 current", AMPS, 0.01),  # cLineCurrent AG
     MathSensor(
         (610, 611, 612), "Grid current", AMPS, factors=(0.01, 0.01, 0.01)
     ),  # iac1,iac2,iac3
@@ -67,6 +79,10 @@ SENSORS += (
     Sensor(650, "Load L1 power", WATT, -1),
     Sensor(651, "Load L2 power", WATT, -1),
     Sensor(652, "Load L3 power", WATT, -1),
+    Sensor(644, "Load L1 voltage", VOLT, 0.1),  #AG
+    Sensor(645, "Load L2 voltage", VOLT, 0.1),  #AG
+    Sensor(626, "Load L3 voltage", VOLT, 0.1),  #AG
+    Sensor(655, "Load frequency", "Hz", 0.01), #AG
 )
 
 ################
@@ -114,6 +130,9 @@ SENSORS += (
     Sensor(664, "Gen L1 power", WATT, -1),
     Sensor(665, "Gen L2 power", WATT, -1),
     Sensor(666, "Gen L3 power", WATT, -1),
+    Sensor(661, "Gen L1 voltage", VOLT, 0.1),  #AG
+    Sensor(662, "Gen L2 voltage", VOLT, 0.1),  #AG
+    Sensor(663, "Gen L3 voltage", VOLT, 0.1),  #AG
 )
 
 ###################
@@ -135,6 +154,7 @@ SENSORS += (
     Sensor((522, 523), "Total Grid Import", KWH, 0.1),
     Sensor((527, 528), "Total Load Energy", KWH, 0.1),
     Sensor((534, 535), "Total PV Energy", KWH, 0.1),
+    Sensor((537, 5358, "Total Gen Energy", KWH, 0.1), #AG
 )
 
 ##########
